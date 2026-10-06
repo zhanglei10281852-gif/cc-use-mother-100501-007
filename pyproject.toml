@@ -4,9 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "program-scheduling"
-version = "0.1.0"
-description = "六网项目联动排程基础领域契约"
+version = "0.2.0"
+description = "六网项目联动排程后端：关键链、增量重算、协同基线与月度审计"
 requires-python = ">=3.11"
+
+[project.scripts]
+sixnet-serve = "program_scheduling.api:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

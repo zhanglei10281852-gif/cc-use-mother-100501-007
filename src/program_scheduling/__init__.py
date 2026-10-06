@@ -1,5 +1,97 @@
 """六网项目联动排程领域包。"""
 
 from .contracts import MilestoneBaseline, unique_by_identity
+from .engine import (
+    CycleReport,
+    ExemptionStatus,
+    HiddenDelay,
+    MilestoneSchedule,
+    OverloadEvent,
+    RecomputeReport,
+    Scenario,
+    ScenarioEvaluation,
+    ScheduleResult,
+    Snapshot,
+    Trigger,
+    affected_scope,
+    compare_scenarios,
+    compute_schedule,
+    derive_triggers,
+    hidden_delay_analysis,
+    recompute_incremental,
+)
+from .model import (
+    BaselineRevision,
+    Change,
+    ChangeProposal,
+    Commitment,
+    Confirmation,
+    Dependency,
+    DependencyKind,
+    MonthlyConclusion,
+    Milestone,
+    MilestoneState,
+    Permit,
+    PermitStatus,
+    Project,
+    ProposalStatus,
+    ResourceBooking,
+    SharedResource,
+)
+from .service import (
+    ENTITY_KINDS,
+    ProgramService,
+    build_snapshot,
+    validate_referential_integrity,
+)
+from .store import ConcurrencyError, EventStore, ProgramRepository, WorkflowError
 
-__all__ = ["MilestoneBaseline", "unique_by_identity"]
+__all__ = [
+    # 基础契约
+    "MilestoneBaseline",
+    "unique_by_identity",
+    # 领域模型
+    "Project",
+    "Milestone",
+    "MilestoneState",
+    "Dependency",
+    "DependencyKind",
+    "SharedResource",
+    "ResourceBooking",
+    "Permit",
+    "PermitStatus",
+    "Commitment",
+    "Change",
+    "Confirmation",
+    "ChangeProposal",
+    "ProposalStatus",
+    "BaselineRevision",
+    "MonthlyConclusion",
+    # 引擎
+    "ScheduleResult",
+    "MilestoneSchedule",
+    "OverloadEvent",
+    "CycleReport",
+    "ExemptionStatus",
+    "RecomputeReport",
+    "Snapshot",
+    "Trigger",
+    "compute_schedule",
+    "recompute_incremental",
+    "derive_triggers",
+    "affected_scope",
+    "hidden_delay_analysis",
+    "HiddenDelay",
+    "Scenario",
+    "ScenarioEvaluation",
+    "compare_scenarios",
+    # 服务与存储
+    "ProgramService",
+    "ProgramRepository",
+    "EventStore",
+    "WorkflowError",
+    "ConcurrencyError",
+    "validate_referential_integrity",
+    "build_snapshot",
+    "ENTITY_KINDS",
+]
